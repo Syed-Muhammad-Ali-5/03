@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    let currentInput = "";
+
+function appendToDisplay(value) {
+  currentInput += value;
+  document.getElementById("display").value = currentInput;
+}
+
+function clearDisplay() {
+  currentInput = "";
+  document.getElementById("display").value = "";
+}
+
+function calculate() {
+  try {
+    currentInput = eval(currentInput).toString();
+    document.getElementById("display").value = currentInput;
+  } catch (error) {
+    document.getElementById("display").value = "Error";
+    currentInput = "";
+  }
+}
+
+  </script>
+  <title>Calculator</title>
+</head>
+  <style>
+    body
+    {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f5f5f5;
+    }
+
+.calculator 
+{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  max-width: 300px;
+  border: 1px solid #140c84;
+  padding: 10px;
+  background-color: #fbfb06;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+#display 
+{
+  grid-column: span 4;
+  text-align: right;
+  padding: 10px;
+  font-size: 24px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.btn 
+{
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid #ed26ab;
+  border-radius: 5px;
+  background-color: #d76ab5;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover 
+{
+  background-color: #e91992;
+}
+
+.operator {
+  background-color: #0afafa;
+  color: rgb(0, 0, 0);
+}
+
+.operator:hover {
+  background-color: #0af9dd;
+}
+
+.clear {
+  background-color: #ff1f02;
+  color:white;
+}
+
+.clear:hover {
+  background-color: #ff3700;
+}
+
+.equal {
+  background-color: #4caf50;
+  color: white;
+}
+
+.equal:hover {
+  background-color: #388e3c;
+}
+
+  </style>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="styles.css">
+      <title>Basic Calculator</title>
+    </head>
+    <body>
+      <div class="calculator">
+        <input type="text" id="display" disabled>
+        <button class="btn" onclick="appendToDisplay('7')">7</button>
+        <button class="btn" onclick="appendToDisplay('8')">8</button>
+        <button class="btn" onclick="appendToDisplay('9')">9</button>
+        <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+        <button class="btn" onclick="appendToDisplay('4')">4</button>
+        <button class="btn" onclick="appendToDisplay('5')">5</button>
+        <button class="btn" onclick="appendToDisplay('6')">6</button>
+        <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+        <button class="btn" onclick="appendToDisplay('1')">1</button>
+        <button class="btn" onclick="appendToDisplay('2')">2</button>
+        <button class="btn" onclick="appendToDisplay('3')">3</button>
+        <button class="btn operator" onclick="appendToDisplay('*')">*</button>
+        <button class="btn" onclick="appendToDisplay('0')">0</button>
+        <button class="btn clear" onclick="clearDisplay()">C</button>
+        <button class="btn equal" onclick="calculate()">=</button>
+        <button class="btn operator" onclick="appendToDisplay('/')">/</button>
+      </div>
+      <script src="script.js"></script>
+    </body>
+    </html>
+    
+</body>
+</html>
